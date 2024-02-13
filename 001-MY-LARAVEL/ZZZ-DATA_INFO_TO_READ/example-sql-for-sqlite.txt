@@ -1,0 +1,15 @@
+CREATE TABLE "auto_test_rename_2" (
+
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+	stuff1 TEXT,
+
+	stuff2 TEXT,
+
+	stuff3 TEXT
+
+);
+
+
+##  id INTEGER PRIMARY KEY AUTOINCREMENT,
+##  is the important data here.

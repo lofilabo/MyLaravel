@@ -1,0 +1,28 @@
+(SEE ALSO ./README.txt)
+
+To be used within Tinker
+
+php artisan tinker
+
+(from / application, i.e. aim the command prompt
+one level 'above' this one!!)
+
+
+1.  One at a time
+
+$user = new User();
+$user->username = 'something';
+$user->password = Hash::make('userpassword');
+$user->email = 'useremail@something.com';
+$user->save();
+
+
+2. All at Once
+
+2.1.  No password
+$user = \App\Models\User::factory()->create(['name' => 'Tempuser1','email' =>'tempuser1@example.com',]);
+
+2.3   With Password
+$user = \App\Models\User::factory()->create(['name' => 'Richard A','email' =>'test1@test1.com', 'password' => Hash::make('test1')  ]);
+
+^^^^^^^^^^^^^-------This is my favourite.

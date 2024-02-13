@@ -1,0 +1,83 @@
+
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+
+    {
+        "name": "bruid",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "inForm": true,
+        "inIndex": false
+    },
+
+    {
+        "name": "agent",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "inForm": true,
+        "inIndex": false
+    },
+
+    {   "name": "jobreference","dbType": "string,64","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "jobtitle","dbType": "string,512","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "jobdescription","dbType": "text","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "salary","dbType": "string,128","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "jobtype","dbType": "string,4","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "city","dbType": "string,128","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "state","dbType": "string,128","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "postcode","dbType": "string,64","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "country","dbType": "string,4","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "employer","dbType": "string,128","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "employertype","dbType": "string,4","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "category","dbType": "string,4","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": false  },
+    {   "name": "url","dbType": "string,1024","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+    {   "name": "extref1","dbType": "string,256","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref2","dbType": "string,256","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref3","dbType": "string,256","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref4","dbType": "string,256","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref5","dbType": "string,256","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+
+    {   "name": "posteddate","dbType": "timestamp","htmlType": "","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "posteddatetext","dbType": "string,128","htmlType": "","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+
+
+     {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

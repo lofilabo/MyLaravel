@@ -1,0 +1,28 @@
+
+i. This machine, mySQL
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=admindash-01
+DB_USERNAME=root
+DB_PASSWORD=password
+
+
+
+ii. This machine, sqLite
+
+DB_CONNECTION=sqlite
+DB_DATABASE=/home/richard/mydb02_expt.db #current best version.
+
+iii. Remote (Company) machine, >>mySQL<<
+
+#	DB_CONNECTION=mysql
+#	#DB_HOST=127.0.0.1
+#	DB_HOST=85.159.210.136
+#	DB_PORT=3306
+#	DB_DATABASE=admindash-01
+#	DB_USERNAME=richard
+#	DB_PASSWORD=richard
+
+

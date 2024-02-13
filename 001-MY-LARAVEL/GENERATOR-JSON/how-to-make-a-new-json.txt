@@ -1,0 +1,101 @@
+$user = \App\Models\User::factory()->create(['name' => 'richard1','email' =>'richard1@richard.com', 'password' => Hash::make('password')  ]);
+
+
+
+php artisan infyom:scaffold zzzpractice --fieldsFile=./GENERATOR-JSON/zzzpractice.json
+                                              ^^^^----db name                                               ^^^^^^^^^----file
+
+
+EXAMPLE OF zzzpractice.json :
+
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+
+    {
+        "name": "info",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "required",
+        "searchable": true
+    },
+
+
+
+    {
+        "name": "bruid",
+        "dbType": "string:nullable",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "inForm": true,
+        "inIndex": false
+    },
+
+    {
+        "name": "title",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "inForm": true,
+        "inIndex": false
+    },
+
+    {   "name": "summary","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+
+    {   "name": "tasks","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "columns","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "columnOrder","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+    {   "name": "extref1","dbType": "string,256:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref2","dbType": "string,256:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref3","dbType": "string,256:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref4","dbType": "string,256:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref5","dbType": "string,256:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+    {   "name": "exfield0","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield1","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield2","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield3","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield4","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+
+    {   "name": "author","dbType": "string,128:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+
+
+     {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]
+
+

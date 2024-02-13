@@ -1,0 +1,79 @@
+
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+
+    {
+        "name": "bruid",
+        "dbType": "string:nullable",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "inForm": true,
+        "inIndex": false
+    },
+
+    {
+        "name": "title",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "inForm": true,
+        "inIndex": false
+    },
+
+    {   "name": "body","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "summary","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+
+    {   "name": "exfield1","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield2","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield3","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "exfield4","dbType": "text:nullable","htmlType": "text","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+
+
+    {   "name": "extref1","dbType": "string,1024:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref2","dbType": "string,1024:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref3","dbType": "string,1024:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref4","dbType": "string,1024:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+    {   "name": "extref5","dbType": "string,1024:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+    {   "name": "author","dbType": "string,128:nullable","htmlType": "text","validations": "","searchable": true,"inForm": false,"inIndex": false  },
+
+    {   "name": "posteddate","dbType": "timestamp","htmlType": "","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+    {   "name": "posteddatetext","dbType": "string,128","htmlType": "","validations": "","searchable": true,"inForm": true,"inIndex": true  },
+
+
+     {
+        "name": "created_at",
+        "dbType": "timestamp:nullable",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp:nullable",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

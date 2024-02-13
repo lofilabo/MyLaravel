@@ -1,0 +1,126 @@
+-2. Where to find file to control LHS menu:
+
+resources/views/layouts/menu.blade.php
+
+
+-1. How to insert a new USER using: 
+php artisan tinker
+
+$user = \App\Models\User::factory()->create(['name' => 'richard1','email' =>'richard1@richard.com', 'password' => Hash::make('password')  ]);
+
+(SEE ALSO very bottom of this file)
+(
+    in the future....
+    examine and test and try:
+    $user->assignRole('writer');
+)
+
+0. Generator.
+
+>>>tested today
+>>>works :)
+php artisan infyom:scaffold zzzwibble --fieldsFile=./GENERATOR-JSON/zzzwibble.json
+
+zzzwibble = Database Table
+./GENERATOR-JSON/zzzwibble.json = Source File
+
+>>>Older example
+php artisan infyom:scaffold $MODEL_NAME --fieldsFile=filename_from_model_schema_directory
+
+1. Like this to make a new user.
+
+within:
+php artisan tinker
+
+CURRENT FAVOURITES:
+
+$user = \App\Models\User::factory()->create(['name' => 'richard1','email' =>'richard1@richard.com', 'password' => Hash::make('password')  ]);
+$user = \App\Models\User::factory()->create(['name' => 'richard2','email' =>'richard2@richard.com', 'password' => Hash::make('password')  ]);
+$user = \App\Models\User::factory()->create(['name' => 'richard3','email' =>'richard3@richard.com', 'password' => Hash::make('password')  ]);
+
+PREVIOUS fAVOURITES
+
+
+$user = \App\Models\User::factory()->create(['name' => 'Tempuser1','email' =>'tempuser1@example.com',]);
+
+EXTRA PART, ADDED RECENTLY:
+
+-->>start
+$user = \App\Models\User::factory()->create(['name' => 'Tempuser1','email' =>'tempuser1@example.com',]);
+
+$user = \App\Models\User::factory()->create(['name' => 'Richard A','email' =>'richardlofi@gmail.com', 'password' => Hash::make('password')  ]);
+<<--end
+
+Don't Forget
+$user = \App\Models\User::factory()->create(['name' => 'Richard','email' =>'richard.amphlett@boardrm.com', 'password' => Hash::make('password')  ]);
+
+
+2. With the $user object still active:
+
+$user->assignRole('writer');
+
+3. And check
+
+$user->hasRole('writer');
+
+
+
+4. If there is no user object yet, DO NOT use 'where', use a return-1-record-only operator:
+
+$user=\App\Models\User::firstOrNew(['id'=>4]);
+
+
+5. assign:
+
+$user->assignRole('writer');  //if WHERE was used, the $user object will not permit the assignRole method.
+
+6. Try a non-esiting role (it will not work)
+
+$user->assignRole('baker');
+
+ 
+
+
+
+
+
+
+
+
+
+
+VERY BOTTOM.
+
+
+lost this part...?
+within php artisan tinker
+
+$user = \App\Models\User::factory()->create(['name' => 'Richard A','email' =>'richardlofi@gmail.com', 'password' => Hash::make('password')  ]);
+
+and then:
+
+$user->assignRole('writer');  <<<<<<<<IMPORTANT!!
+
+In Full:
+
+php artisan tinker
+
+ADDING AN ADMIN USER:
+$admin=new App\Admin
+=> App\Admin {#663}
+$admin->name="admin"
+=> "admin"
+$admin->email="admin@admin.com"
+=> "admin@admin.com"
+$admin->password = Hash::make('password')
+=> "$2y$10$Q4XLVRuK3gib6SmnyHnlyesYjglY12C8enjpwmllRIu01PMIW79iS"
+$admin->job_title = 'admin'
+=> "admin"
+$admin->save()
+=> true
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+***You need a file, .env , to run your database and application.
+
+***The root of this file is stores as BACKUP.env
+
+***COPY BACKUP.env ==> .env    and copy it one-level-above this!!
+
+Remember, we want a file called .env one level above this,
+in the / of the applications.
+
+for convenience and visbility, we store them as SOMETHING.env
+
+But, your application will require a .env in its root directory.

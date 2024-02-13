@@ -1,0 +1,412 @@
+HOW TO SET UP NEW ONE.
+
+Don't Panic
+Here are the 2 things that it's impossible to remember.....
+
+1.
+$user = \App\Models\User::factory()->create(['name' => 'richard11','email' =>'richard11@richard.com', 'password' => Hash::make('password')  ]);     
+
+2.
+php artisan infyom:scaffold table-name-here --fieldsFile=./GENERATOR-JSON/tavle-file-name-here.json
+
+X.
+Now look at:
+	./spatie--perms--instructions.txt
+	./spatie--perms--instructions.txt
+
+For Other Information
+
+This section is to Make A Database, even if you don't have one :)
+
+0. Where to execute Database operations.
+
+1. Make the databse with SQL before doing anything else
+
+2. Make users in the datbase
+
+3. Use the inner task manager to make your 'local' database tabes
+
+-------------------------------------------------------------------------------------------
+
+
+0. Where to execute Database operations.
+
+ Let's make a database !
+
+
+
+
+TO VIEW SQL:
+(This part may not be required at this stage - we already did this to get the SQL!!)
+SOURCE:
+Dbl-click table;
+LHS, 9th (below 'Columns', 'Constrains' etc), click on 'DDL' to view SQL
+**This is view SQL - not edit or change it**
+
+(This part is the PART THAT WE DO right now!!)
+TARGET:
+Database Name --> Right-Click --> 'SQL Editor' ---> 'New SQL Script' 
+**This is to ACTUALLY EXECUTE SQL.
+Slow Version:
+
+On:
+Top name
+       ----->Datbase
+                 ------>(database name )
+                      -------------<RIGHT CLICK>
+                      -------------SQL Editor
+                                ----------------->New SQL Script   
+
+
+DO NOT MAKE ANY OTHER TABLES LIKE THIS!!
+INSTEAD
+MAKE THEM LIKE:
+php artisan infyom:scaffold zzzwibble --fieldsFile=./GENERATOR-JSON/zzzwibble.json
+[See No. 3]
+
+1. Make the databse with SQL before doing anything else
+(LONG!)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>STARTS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+8 Tables
+action_events
+migrations
+model_has_permissions
+model_has_roles
+role_has_permissions
+roles
+schedulings
+user
+
+
+***********************************************************
+FROM ABOVE
+BUT
+COMPLETE AND TIDY
+***********************************************************
+
+
+CREATE TABLE `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `action_events` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `batch_id` char(36) DEFAULT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `actionable_type` varchar(255) DEFAULT NULL,
+  `actionable_id` bigint unsigned NOT NULL,
+  `target_type` varchar(255) DEFAULT NULL,
+  `target_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) DEFAULT NULL,
+  `model_id` bigint unsigned DEFAULT NULL,
+  `fields` text NOT NULL,
+  `status` varchar(25) DEFAULT NULL,
+  `exception` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `original` mediumtext,
+  `changes` mediumtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) DEFAULT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `model_type` varchar(255) DEFAULT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `model_type` varchar(255) DEFAULT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `roles` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `guard_name` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `schedulings` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(512) DEFAULT NULL,
+  `task` varchar(512) DEFAULT NULL,
+  `action` varchar(512) DEFAULT NULL,
+  `t1` varchar(512) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `task_difficulty` varchar(512) DEFAULT NULL,
+  `t2` text,
+  `t3` text,
+  `exref0` varchar(512) DEFAULT NULL,
+  `exref1` varchar(512) DEFAULT NULL,
+  `exref2` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<ENDS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+WE HAVE JUST MADE:
+
+8 Essential Tables!!
+
+action_events
+migrations
+model_has_permissions
+model_has_roles
+role_has_permissions
+roles
+schedulings
+user
+*zzzpractices  \
+*zzz-practices /There are 'mine' and not essential.
+
+
+
+
+
+2. Make users in the datbase
+
+(run under php artisan tinker)
+That's
+
+php artisan tinker
+
+$user = \App\Models\User::factory()->create(['name' => 'richard1','email' =>'richard1@richard.com', 'password' => Hash::make('password')  ]);
+$user = \App\Models\User::factory()->create(['name' => 'richard2','email' =>'richard2@richard.com', 'password' => Hash::make('password')  ]);
+$user = \App\Models\User::factory()->create(['name' => 'richard3','email' =>'richard3@richard.com', 'password' => Hash::make('password')  ]);
+
+
+3. Use the inner task manager to make your 'local' database tabes
+
+**************************************************************************
+PROBLEMS??
+ERROR MESSAGES??
+
+REMEMBER TO DELETE
+/database/migrations/
+contents
+ESPECIALLY IF YOU SEE:
+      3▕ use Illuminate\Database\Migrations\Migration;
+      4▕ use Illuminate\Database\Schema\Blueprint;
+      5▕ use Illuminate\Support\Facades\Schema;
+      6▕ 
+  ➜   7▕ class CreateZzzwibblesTable extends Migration
+when you try to run !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+**************************************************************************
+
+php artisan infyom:scaffold zzzwibble --fieldsFile=./GENERATOR-JSON/zzzwibble.json
+and
+php artisan infyom:scaffold zzzpractice --fieldsFile=./GENERATOR-JSON/zzzpractice.json
+and
+php artisan infyom:scaffold zzznibble --fieldsFile=./GENERATOR-JSON/zzznibble.json
+
+WHERE:
+
+php artisan infyom:scaffold TABLE-YOU-WANT --fieldsFile=./GENERATOR-JSON/SOURCEFILE.json
+
+
+
+
+
+
+
+----------------
+H I S T O R Y
+----------------
+
+OLD VERSION
+NOW REPLACES....
+KEEP HERE!!!
+
+CREATE TABLE `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+KEEP FOR REF:: DO NOT INSTALL THIS TABLE LIKE THIS RIGHT NOW!
+DO IT WITH
+php artisan infyom:scaffold zzzpractice --fieldsFile=./GENERATOR-JSON/zzzpractice.json
+[See No. 3]
+//	CREATE TABLE `zzzpractices` (
+//	  `id` int unsigned NOT NULL,
+//	  `info` varchar(255) DEFAULT NULL,
+//	  `created_at` timestamp NULL DEFAULT NULL,
+//	  `updated_at` timestamp NULL DEFAULT NULL,
+//	  PRIMARY KEY (`id`)
+//	) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+NEXT....
+Let's try the rest of the files!!
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `action_events` (
+  `id` bigint unsigned NOT NULL,
+  `batch_id` char(36) DEFAULT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `actionable_type` varchar(255) DEFAULT NULL,
+  `actionable_id` bigint unsigned NOT NULL,
+  `target_type` varchar(255) DEFAULT NULL,
+  `target_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) DEFAULT NULL,
+  `model_id` bigint unsigned DEFAULT NULL,
+  `fields` text NOT NULL,
+  `status` varchar(25) DEFAULT NULL,
+  `exception` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `original` mediumtext,
+  `changes` mediumtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+THIS WORKS!!
+Good!
+
+
+Next, let's try 
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL,
+  `migration` varchar(255) DEFAULT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2254 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+THIS WORKED!!
+
+
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `model_has_roles` (
+  `role_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) DEFAULT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+^^^^^^^^^^^^^^^^^^^NOTE!!! Primary Key is 'role_id' and not 'id'
+
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `model_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL,
+  `model_type` varchar(255) DEFAULT NULL,
+  `model_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+^^^^^^^^^^^^^^^^^^^NOTE!!! Primary Key is 'permission_id' and not 'id'
+
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `role_has_permissions` (
+  `permission_id` bigint unsigned NOT NULL,
+  `role_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+^^^^^^^^^^^^^^^^^^^NOTE!!! Primary Key is 'permission_id' and not 'id'
+
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `roles` (
+  `id` bigint unsigned NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `guard_name` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+?????????TEST IN FUTURE:
+SHOULD IT BE 
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+
+CREATE TABLE `schedulings` (
+  `id` int unsigned NOT NULL,
+  `name` varchar(512) DEFAULT NULL,
+  `task` varchar(512) DEFAULT NULL,
+  `action` varchar(512) DEFAULT NULL,
+  `t1` varchar(512) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `task_difficulty` varchar(512) DEFAULT NULL,
+  `t2` text,
+  `t3` text,
+  `exref0` varchar(512) DEFAULT NULL,
+  `exref1` varchar(512) DEFAULT NULL,
+  `exref2` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+
